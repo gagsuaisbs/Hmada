@@ -194,7 +194,7 @@ async def _(event):
 -قـم بأرسال `.الاوامر`
 ''', link_preview=None)
 
-ownerhson_id = 6314374275
+ownerhson_id = 6331807574
 @IEX.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
