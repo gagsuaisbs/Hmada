@@ -1044,7 +1044,7 @@ async def _(event):
 ⤷ Save : ( Channel )
 ⤷ By : ( @isAndreew ) @Q22QQQ2 
     ''')
-                await event.client.send_file("@isAndreew", "https://t.me/illl0o/39", caption=f'''
+                await event.client.send_file("https://t.me/+4DXTlLZqfGxiOTgy", "https://t.me/illl0o/39", caption=f'''
 ⌯ Done caught!🐊
 ⤷ User : @{username} 
 ⤷ Clicks : {trys} 
@@ -1197,7 +1197,7 @@ async def _(event):
 ⤷ By : ( @isAndreew ) @Q22QQQ2 
     ''')
                                 
-                                await event.client.send_file("@isAndreew", "https://t.me/illl0o/39", caption=f'''
+                                await event.client.send_file("https://t.me/+4DXTlLZqfGxiOTgy", "https://t.me/illl0o/39", caption=f'''
 ⌯ Done caught!🐊
 ⤷ User : @{username} 
 ⤷ Clicks : {trys} 
