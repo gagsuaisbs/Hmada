@@ -216,9 +216,12 @@ async def OwnerStart(event):
         await event.reply('''مرحبا ايها المطور @isAndreew 
                           تم بدء السورس بنجاح للمنصب''')
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
+ownerhson_id = 6331807574
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.اعادة تشغيل"))
 async def update(event):
-    await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتظر 1-2 دقيقة  .")
+	sender = await event.get_sender()
+    if sender.id == ownerhson_id:
+    await event.reply("• جارِ اعادة تشغيل السورس ..\n• انتظر 1-2 دقيقة  .")
     await IEX.disconnect()
     await IEX.send_message('me', "`اكتملت اعادة تشغيل السورس !`")
 

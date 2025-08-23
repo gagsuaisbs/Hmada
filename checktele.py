@@ -36,15 +36,9 @@ LOGS = logging.getLogger(__name__)
 
 english_words = set(words.words())
 
-a = 'qwertyuiopassdfghjklzxcvbnm'
-bbb = 'qwertyuiopassdfghjklzxcvbnm'
+a = 'qwertyuiopasdfghjklzxcvbnm'
 b = '1234567890'
 e = 'qwertyuiopassdfghjklzxcvbnm1234567890'
-aa = 'ertuiowaszxcvnm'
-ee = 'mnvcxzaswertuio'
-bb = 'wertuioaszxcvnm'
-eee = '8'
-aaa = 'x'
 
 banned = []
 isclaim = ["off"]
@@ -90,42 +84,42 @@ def check_user(username):
 def gen_user(choice):
     if choice == "1":
         c = random.choices(a)
-        d = random.choices(b)
-        s = random.choices(e)
-        f = [c[0], "_", d[0], "_", s[0]]
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(b)
-            s = random.choices(e)
-            f = [c[0], "_", d[0], "_", s[0]]
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "2":
-        c = random.choices(a)
         d = random.choices(a)
         s = random.choices(e)
         f = [c[0], "_", d[0], "_", s[0]]
         username = ''.join(f)
         if username in banned[0]:
             c = random.choices(a)
-            d = random.choices(b)
+            d = random.choices(e)
             s = random.choices(e)
             f = [c[0], "_", d[0], "_", s[0]]
+            username = ''.join(f)
+        else:
+            pass
+    if choice == "2":
+        c = d = random.choices(a)
+        d = random.choices(e)
+        f = [c[0], d[0], c[0], c[0], c[0], d[0]]
+        random.shuffle(f)
+        username = ''.join(f)
+        if username in banned[0]:
+            c = d = random.choices(a)
+            d = random.choices(e)
+            f = [c[0], d[0], c[0], c[0], c[0], d[0]]
+            random.shuffle(f)
             username = ''.join(f)
         else:
             pass
     if choice == "3":
         c = d = random.choices(a)
         d = random.choices(b)
-        f = [c[0], d[0], d[0], d[0], c[0] ,d[0]]
+        f = [c[0], d[0], "_", c[0], c[0]]
         random.shuffle(f)
         username = ''.join(f)
         if username in banned[0]:
             c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], c[0], d[0], d[0], c[0] ,d[0]]
+            d = random.choices(b)
+            f = [c[0], d[0], "_", c[0], c[0]]
             random.shuffle(f)
             username = ''.join(f)
         else:
@@ -170,24 +164,6 @@ def gen_user(choice):
         c = random.choices(a)
         d = random.choices(e)
         s = random.choices(e)
-        f = [c[0], s[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        username = username+'bot'
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(a)
-            s = random.choices(e)
-            f = [c[0], s[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = username+'bot'
-        else:
-            pass
-    if choice == "7":
-        c = random.choices(a)
-        d = random.choices(e)
-        s = random.choices(e)
         f = [c[0], s[0], d[0]]
         random.shuffle(f)
         username = ''.join(f)
@@ -200,6 +176,20 @@ def gen_user(choice):
             random.shuffle(f)
             username = ''.join(f)
             username = username+'bot'
+        else:
+            pass
+    if choice == "7":
+        c = random.choices(a)
+        d = random.choices(e)
+        s = random.choices(b)
+        f = [c[0], c[0], c[0], s[0], d[0]]    
+        username = ''.join(f)
+        if username in banned[0]:
+            c = random.choices(a)
+            d = random.choices(e)
+            s = random.choices(e)
+            f = [c[0], c[0], c[0], d[0], s[0]]    
+            username = ''.join(f)
         else:
             pass
     if choice == "8":
@@ -217,220 +207,6 @@ def gen_user(choice):
         else:
             pass
     if choice == "9":
-        c = d = random.choices(a)
-        d = random.choices(a)
-        f = [c[0], d[0], '_' , d[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], d[0], '_' , d[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-    else:
-            pass
-    if choice == "10":
-        c = d = random.choices(a)
-        d = random.choices(a)
-        f = [c[0], d[0], c[0] , '_' , d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], d[0], c[0] , '_' , d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "11":
-        c = d = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], c[0], d[0], d[0], c[0] , c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(a)
-            f = [c[0], c[0], d[0], c[0], d[0] ,d[0]]
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], c[0], d[0], d[0], c[0] , c[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-             pass
-    if choice == "12":
-        c = d = random.choices(a)
-        d = random.choices(a)
-        f = [c[0], d[0], c[0], c[0], c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], d[0], c[0], c[0], c[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "13":
-        c = d = random.choices(a)
-        d = random.choices(a)
-        f =  [c[0], d[0],  '_' , c[0], c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(b)
-            f =  [c[0], d[0],  '_' , c[0], c[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "14":
-        c = random.choices(a)
-        d = random.choices(e)
-        s = random.choices(b)
-        f = [c[0], c[0], c[0], s[0], d[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(e)
-            s = random.choices(e)
-            f = [c[0], c[0], c[0], d[0], s[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "15":
-        c = random.choices(a)
-        d = random.choices(e)
-        s = random.choices(e)
-        f = [c[0], c[0], d[0], s[0], s[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(ee)
-            s = random.choices(bb)
-            f = [c[0], c[0], d[0], s[0], s[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "16":
-        c = random.choices(aa)
-        d = random.choices(ee)
-        s = random.choices(bb)
-        f = [c[0], d[0], s[0], s[0], s[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(ee)
-            s = random.choices(bb)
-            f = [c[0], d[0], s[0], s[0], s[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "17":
-        c = random.choices(aa)
-        d = random.choices(ee)
-        s = random.choices(aaa)
-        f = [c[0], d[0], s[0], s[0], s[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(ee)
-            s = random.choices(aaa)
-            f = [c[0], d[0], s[0], s[0], s[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "18":
-        c = random.choices(aa)
-        d = random.choices(ee)
-        s = random.choices(aaa)
-        f = [s[0], s[0], s[0], d[0], c[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(ee)
-            s = random.choices(aaa)
-            f = [s[0], s[0], s[0], d[0], c[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "19":
-        c = random.choices(aa)
-        d = random.choices(aaa)
-        s = random.choices(ee)
-        f = [s[0], c[0], c[0], c[0], d[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(aaa)
-            s = random.choices(ee)
-            f = [s[0], c[0], c[0], c[0], d[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "20":
-        c = random.choices(aa)
-        d = random.choices(ee)
-        s = random.choices(bb)
-        f = [s[0], d[0], d[0], d[0], c[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(ee)
-            s = random.choices(bb)
-            f = [s[0], d[0], d[0], d[0], c[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "21":
-        c = random.choices(aa)
-        d = random.choices(ee)
-        s = random.choices(bb)
-        f = [c[0], d[0], s[0], s[0], s[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(ee)
-            s = random.choices(bb)
-            f = [c[0], d[0], s[0], s[0], s[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "22":
-        c = random.choices(aa)
-        d = random.choices(ee)
-        s = random.choices(bb)
-        f = [s[0], s[0], s[0], d[0], c[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(ee)
-            s = random.choices(bb)
-            f = [s[0], s[0], s[0], d[0], c[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "23":
-        c = random.choices(aa)
-        d = random.choices(bb)
-        s = random.choices(ee)
-        f = [s[0], d[0], d[0], d[0], c[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(aa)
-            d = random.choices(bb)
-            s = random.choices(ee)
-            f = [s[0], d[0], d[0], d[0], c[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "24":
         c = random.choices(e)
         d = random.choices(b)
         s = random.choices(a)
@@ -442,166 +218,24 @@ def gen_user(choice):
             s = random.choices(a)
             f = [c[0], s[0], d[0], d[0], d[0] , d[0]]    
             username = ''.join(f)
-        else:
-            pass
-    if choice == "25":
-        c = random.choices(e)
-        d = random.choices(b)
-        s = random.choices(a)
-        f = [c[0], s[0], d[0], d[0], d[0]]    
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(e)
-            d = random.choices(b)
-            s = random.choices(a)
-            f = [c[0], s[0], d[0], d[0], d[0]]    
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "26":
-        c = random.choices(a)
-        d = random.choices(e)
-        s = random.choices(e)
-        f = [c[0], s[0], d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        username = username+'bot'
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(a)
-            s = random.choices(e)
-            f = [c[0], s[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = username+'bot'
-        else:
-            pass
-    if choice == "27":
-        d1 = str(''.join((random.choice(b) for i in range(1))))
-        d2 = str(''.join((random.choice(b) for i in range(1))))
-        d3 = str(''.join((random.choice(b) for i in range(1))))
-        f1 = 'vip'+d1+d2+d1+d2
-        f2= 'vip'+d1+d1+d2+d2
-        f3 = 'vip'+d1+d2+d2+d2
-        f4 = 'vip'+d1+d1+d1+d2
-        f5 = 'id'+d1+d2+d3
-        f = f1,f2,f3,f4,f5
-        f = random.choice(f)
-        username =f
-        if username in banned[0]:
-            d1 = str(''.join((random.choice(b) for i in range(1))))
-            d2 = str(''.join((random.choice(b) for i in range(1))))
-            f1 = 'vip'+d1+d2+d1+d2
-            f2= 'vip'+d1+d1+d2+d2
-            f3 = 'vip'+d1+d1+d1+d2
-            f4 = 'vip'+d1+d1+d1+d1
-            f5 = 'id'+d1+d2+d3
-            f6 = 'USER'+d1+d2+d3
-            f = f1,f2,f3,f4,f5,f6
-            f = random.choice(f)
-            username =f
-        else:
-            pass
-    if choice == "28":
-        c = random.choices(b)
-        d = random.choices(b)
-        s = random.choices(b)
-        k = random.choices(b)
-        f = [c[0], d[0], s[0],k[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        username = 'vip'+username
-        if username in banned[0]:
-            c = random.choices(b)
-            d = random.choices(b)
-            s = random.choices(b)
-            k = random.choices(b)
-            f = [c[0], c[0], c[0],k[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = 'vip'+username
-        else:
-            pass
-    if choice == "29":
-        c = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], d[0], d[0], d[0] , d[0], c[0] ,d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], c[0], d[0], d[0] , d[0], c[0] ,d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "30":
-        c = d = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], c[0], d[0], d[0] , c[0], c[0] ,c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], c[0], c[0], d[0] , c[0], c[0] ,d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "31":
-        c = d = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], c[0], d[0], c[0] , c[0], d[0] ,d[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], d[0], d[0], c[0] , c[0], c[0] ,d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "32":
-        c = d = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], d[0], c[0], d[0] , c[0], c[0] ,c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], d[0], d[0], c[0] , c[0], c[0] ,d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "33":
-        c = random.choices(a)
-        d = random.choices(bbb)
-        s = random.choices(b)
-        f = [c[0], c[0], s[0], s[0] , s[0], s[0] ,s[0]]
-        random.shuffle(f)
-        username = ''.join(f)
     else:
             pass
-    if choice == "34":
-        c = d = random.choices(a)
-        d = random.choices(e)
-        f = [c[0], d[0], d[0], c[0] , d[0], c[0] ,c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = d = random.choices(a)
-            d = random.choices(e)
-            f = [c[0], d[0], c[0], d[0] , c[0], d[0] ,d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
+    if choice == "10":
+            c = str(''.join((random.choice(a) for i in range(1))))
+            d = str(''.join((random.choice(bbb) for i in range(1))))
+            f1 = c+d+c+c+c+c+c+c
+            f2 = c+c+d+c+c+c+c+c
+            f3 = c+c+c+d+c+c+c+c
+            f4 = c+c+c+c+d+c+c+c
+            f5 = c+c+c+c+c+d+c+c
+            f6 = c+c+c+c+c+c+d+c
+            f7 = c+c+c+c+c+c+c+d
+            f = f1,f2,f3,f4,f5,f6,f7
+            f = random.choice(f)
+            username = f
         else:
             pass
-    if choice == "35":
+    if choice == "11":
         c = str(''.join((random.choice(a) for i in range(1))))
         d = str(''.join((random.choice(b) for i in range(1))))
         f1 = c+c+d+c+c+d+c
@@ -639,307 +273,18 @@ def gen_user(choice):
             username = f
         else:
             pass
-    if choice == "36":
-        c = random.choices(a)
-        d = random.choices(bbb)
-        s = random.choices(eee)
-        f = [c[0], c[0], s[0], s[0] , s[0], s[0] ,s[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(bbb)
-            s = random.choices(eee)
-            f = [c[0], c[0], s[0], s[0] , s[0], s[0] ,s[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-        else:
-            pass
-    if choice == "37":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(e) for i in range(1))))
-        f1 = c+d+d+c+c+c
-        f2 = c+c+d+d+c+c
-        f3 = c+c+c+d+d+c
-        f4 = c+c+c+c+d+d
-        f5 = c+d+c+d+c+c
-        f6 = c+c+d+c+d+c
-        f7 = c+c+c+d+c+d
-        f8 = c+c+c+c+d+d
-        f9 = c+d+d+d+d+c
-        f10 = c+d+d+d+c+d
-        f11 = c+c+d+d+d+d
-        f = f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11
-        f = random.choice(f)
-        username = f
-        if username in banned[0]:
-            c = str(''.join((random.choice(a) for i in range(1))))
-            d = str(''.join((random.choice(b) for i in range(1))))
-            f1 = c+d+d+c+c+c
-            f2 = c+c+d+d+c+c
-            f3 = c+c+c+d+d+c
-            f4 = c+c+c+c+d+d
-            f5 = c+d+c+d+c+c
-            f6 = c+c+d+c+d+c
-            f7 = c+c+c+d+c+d
-            f8 = c+c+c+c+d+d
-            f9 = c+d+d+d+d+c
-            f10 = c+d+d+d+c+d
-            f11 = c+c+d+d+d+d
-            f = f1,f2,f3,f4,f5,f6,f7,f8,f9,f10,f11 
-            f = random.choice(f)
-            username = f
-        else:
-            pass
-    if choice == "38":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(e) for i in range(1))))
-        f1 = c+d+c+c+c+c+c
-        f2 = c+c+d+c+c+c+c
-        f3 = c+c+c+d+c+c+c
-        f4 = c+c+c+c+d+c+c
-        f5 = c+c+c+c+c+d+c
-        f6 = c+c+c+c+c+c+d
-        f = f1,f2,f3,f4,f5,f6
-        f = random.choice(f)
-        username = f
-        if username in banned[0]:
-            c = str(''.join((random.choice(a) for i in range(1))))
-            d = str(''.join((random.choice(e) for i in range(1))))
-            f1 = c+d+c+c+c+c+c
-            f2 = c+c+d+c+c+c+c
-            f3 = c+c+c+d+c+c+c
-            f4 = c+c+c+c+d+c+c
-            f5 = c+c+c+c+c+d+c
-            f6 = c+c+c+c+c+c+d 
-            f = random.choice(f)
-            username = f
-        else:
-            pass
-    if choice == "39":
-        d1 = str(''.join((random.choice(b) for i in range(1))))
-        d2 = str(''.join((random.choice(b) for i in range(1))))
-        d3 = str(''.join((random.choice(b) for i in range(1))))
-        f1 = 'trx'+d1+d2
-        f2= 'top'+d1+d2
-        f3 = 'ton'+d1+d2
-        f4 = 'tg'+d1+d2+d3
-        f = f1,f2,f3,f4
-        f = random.choice(f)
-        username =f
-        if username in banned[0]:
-            d1 = str(''.join((random.choice(b) for i in range(1))))
-            d2 = str(''.join((random.choice(b) for i in range(1))))
-            f1 = 'trx'+d1+d2
-            f2= 'top'+d1+d2+d2
-            f3 = 'ton'+d1+d2+d2
-            f4 = 'tg'+d1+d2+d3
-            f = f1,f2,f3,f4
-            f = random.choice(f)
-            username =f
-        else:
-            pass
-    if choice == "40":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        s = str(''.join((random.choice(bbb) for i in range(1))))
-        n = str(''.join((random.choice(eee) for i in range(1))))
-        k = str(''.join((random.choice(b) for i in range(1))))
-        f1 = c+s+n+n+n+n+n
-        f2 = c+k+n+n+n+n+n
-        f = f1,f2
-        f = random.choice(f)
-        username = f
-    else:
-        pass
-    if choice == "41":
-        c = random.choices(a)
+    if choice == "12":
+        c = random.choices(e)
         d = random.choices(b)
-        f = [c[0], d[0], '_' , d[0], d[0] , d[0]]
-        random.shuffle(f)
+        s = random.choices(a)
+        f = [c[0], s[0], d[0], d[0], d[0]]    
         username = ''.join(f)
         if username in banned[0]:
-            c = random.choices(a)
+            c = random.choices(e)
             d = random.choices(b)
-            f = [c[0], d[0], d[0], d[0], '_' , d[0]]
-            random.shuffle(f)
+            s = random.choices(a)
+            f = [c[0], s[0], d[0], d[0], d[0]]    
             username = ''.join(f)
-        else:
-            pass
-        if choice == "42":
-            c = str(''.join((random.choice(a) for i in range(1))))
-            d = str(''.join((random.choice(bbb) for i in range(1))))
-            f1 = c+d+c+c+c+c+c+c
-            f2 = c+c+d+c+c+c+c+c
-            f3 = c+c+c+d+c+c+c+c
-            f4 = c+c+c+c+d+c+c+c
-            f5 = c+c+c+c+c+d+c+c
-            f6 = c+c+c+c+c+c+d+c
-            f7 = c+c+c+c+c+c+c+d
-            f = f1,f2,f3,f4,f5,f6,f7
-            f = random.choice(f)
-            username = f
-        else:
-            pass
-    if choice == "43":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(bbb) for i in range(1))))
-        f1 = c+s+s+s+s+s+d
-        f2 = c+s+s+s+s+s+n
-        f = f1,f2
-        f = random.choice(f)
-        username = f
-    else: 
-        pass
-    if choice == "44":
-        c = random.choices(a)
-        d = random.choices(b)
-        f = [c[0], c[0], d[0], c[0]]
-        random.shuffle(f)
-        username = ''.join(f)
-        username = username+'bot'
-        if username in banned[0]:
-            c = random.choices(a)
-            d = random.choices(b)
-            f = [c[0], c[0], d[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = username+'bot'
-            if username in banned[0]:
-                c = random.choices(a)
-                d = random.choices(bbb)
-            f = [c[0], d[0], d[0], c[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = username+'bot'
-            if username in banned[0]:
-                c = random.choices(a)
-                d = random.choices(b)
-            f = [c[0], d[0], c[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = username+'bot'
-            if username in banned[0]:
-                c = random.choices(a) 
-                d = random.choices(b)
-            f = [c[0], c[0], c[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = username+'bot'
-            if username in banned[0]:
-                c = random.choices(a) 
-                d = random.choices(e)
-            f = [c[0], d[0], d[0], d[0]]
-            random.shuffle(f)
-            username = ''.join(f)
-            username = username+'bot'
-        else:
-            pass
-    if choice == "45":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(b) for i in range(1))))
-        f1 = c+d+d+c+c
-        f2 = c+c+d+d+c
-        f3 = c+c+c+d+d
-        f = f1,f2,f3
-        f = random.choice(f)
-        username = f
-    else:
-        pass
-    if choice == "46":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(e) for i in range(1))))
-        f1 = c+'_'+d+d+d
-        f2 = c+c+c+'_'+d
-        f = f1,f2
-        f = random.choice(f)
-        username = f
-    else:
-        pass
-    if choice == "47":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(b) for i in range(1))))
-        f1 = c+c+d+d+d+d+d
-        f = f1,f2,f3
-        f = random.choice(f)
-        username = f
-    else:
-        pass
-    if choice == "48":
-        d1 = str(''.join((random.choice(b) for i in range(1))))
-        d2 = str(''.join((random.choice(b) for i in range(1))))
-        d3 = str(''.join((random.choice(b) for i in range(1))))
-        f1 = 'tg'+d1+d2+d3
-        f2 = 'tg'+d1+d2+d2
-        f3 = 'tg' +d1+d1+d2
-        f = f1,f2,f3
-        f = random.choice(f)
-        username =f
-    else:
-        pass
-    if choice == "49":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(e) for i in range(1))))
-        bbb = str(''.join((random.choice(b) for i in range(1))))
-        f1 = c+d+d+d+c+c+c
-        f2 = c+d+d+d+d+c+c
-        f3 = c+c+d+d+d+c+c
-        f4 = c+c+c+d+d+d+c
-        f5 = c+c+c+d+d+d+d
-        f6 = c+c+c+c+d+d+d
-        f7 = c+c+c+d+d+d+c
-        f = f1,f2,f3,f4,f5,f6,f7
-        f = random.choice(f)
-        username =f
-    else:
-        pass
-    if choice == "50":
-        c = str(''.join((random.choice(aaa) for i in range(1))))
-        d1 = str(''.join((random.choice(b) for i in range(1))))
-        d2 = str(''.join((random.choice(b) for i in range(1))))
-        f1 = c+d1+d2+d1+d1
-        f2 = c+d1+d1+d2+d1
-        f = f1,f2
-        f = random.choice(f)
-        username = f
-    else:
-        pass
-    if choice == "51":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d1 = str(''.join((random.choice(b) for i in range(1))))
-        d2 = str(''.join((random.choice(b) for i in range(1))))
-        f1 = c+d1+d2+d1+d1
-        f2 = c+d1+d1+d2+d1
-        f = f1,f2
-        f = random.choice(f)
-        username = f
-    else:
-        pass
-    if choice == "52":
-        c = str(''.join((random.choice(a) for i in range(1))))
-        d = str(''.join((random.choice(b) for i in range(1))))
-        s = str(''.join((random.choice(e) for i in range(1))))
-        f1 = c+d+d+s+s
-        f2 = c+s+s+d+d
-        f3 = c+c+d+d+s
-        f4 = c+c+s+s+d
-        f5 = c+c+d+s+s
-        f6 = c+c+s+d+d
-        f = f1,f2,f3,f4,f5,f6
-        f = random.choice(f)
-        username = f
-    else:
-        pass
-    if choice == "53":
-        d1 = str(''.join((random.choice(b) for i in range(1))))
-        d2 = str(''.join((random.choice(b) for i in range(1))))
-        d3 = str(''.join((random.choice(b) for i in range(1))))
-        f1 = 'vip'+d1+d1+d1+d2+d2+d2
-        f2 = 'vip'+d2+d2+d2+d1+d1+d1
-        f3 = 'vip' +d1+d2+d2+d2+d2
-        f4 = 'vip' +d1+d1+d1+d1+d2
-        f = f1,f2,f3, f4
-        f = random.choice(f)
-        username =f
     else:
         pass
     return username 
@@ -949,8 +294,11 @@ def gen_user(choice):
 #############################################################################
 #الصيد العادى 
 # صيد عدد نوع قناة  
+ownerhson_id = 6331807574
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
 async def _(event):
+	sender = await event.get_sender()
+    if sender.id == ownerhson_id:
     if ispay[0] == "yes":
         user = await event.get_sender()
         uss = user.username   
@@ -969,14 +317,14 @@ async def _(event):
         except Exception as ee:
             ch = None
 
-        if int(choice) < 1 or int(choice) > 53:
-            await event.edit(f"هذا النوع غير موجود")
+        if int(choice) < 1 or int(choice) > 12:
+            await event.reply(f"هذا النوع غير موجود")
             isclaim.clear()
             isclaim.append("off")
             trys = 0
             return await event.client.send_message(event.chat_id, "! تم ايقاف الصيد")
         else:
-            await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+            await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
             await asyncio.sleep(1)
 
         if ch == None:
@@ -986,13 +334,13 @@ async def _(event):
 
                     ch = replly.text
 
-                    await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+                    await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
 
                 else:
             
                     ch = await IEX(functions.channels.CreateChannelRequest(
                     title=" AndY ultra sourece Hunting Channal ",
-                    about=f"This channel to hunt usernames by - @isAndreew,  {IEX_USER}",
+                    about=f"This channel to hunt usernames by none 😝",
                     ))
             
                     ch = ch.updates[1].channel_id
@@ -1013,7 +361,7 @@ async def _(event):
 
                     invite_link = invite.link
 
-                    await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** [اضغط هنا]({invite_link}) \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+                    await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** [اضغط هنا]({invite_link}) \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
 
             except Exception as e:
 
@@ -1079,8 +427,11 @@ async def _(event):
 
     # الصيد التلقائى بالرد على قناة او انشائها تلقائيا صياد + نوع تلقائى + عدد اليوزرات المطلوب 
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.صياد (.*)"))
+ownerhson_id = 6331807574
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.صياد (.*)"))
 async def _(event):
+	sender = await event.get_sender()
+    if sender.id == ownerhson_id:
     if ispay[0] == "yes":
         user = await event.get_sender()
         uss = user.username   
@@ -1098,7 +449,7 @@ async def _(event):
         
         if choice not in (""):
             if int(choice) < 1 or int(choice) > 53:                                                                                                 
-                await event.edit(f"هذا النوع غير موجود")
+                await event.reply(f"هذا النوع غير موجود")
                 isclaim.clear()
                 isclaim.append("off")
                 trys = 0
@@ -1107,27 +458,27 @@ async def _(event):
 
         if tr > 1:
 
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟷𝟶 ▬▭▭▭▭▭▭▭▭▭", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟷𝟶 ▬▭▭▭▭▭▭▭▭▭", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟸𝟶 ▬▬▭▭▭▭▭▭▭▭", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟸𝟶 ▬▬▭▭▭▭▭▭▭▭", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟹𝟶 ▬▬▬▭▭▭▭▭▭▭", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟹𝟶 ▬▬▬▭▭▭▭▭▭▭", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟺𝟶 ▬▬▬▬▭▭▭▭▭▭", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟺𝟶 ▬▬▬▬▭▭▭▭▭▭", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟻𝟶 ▬▬▬▬▬▭▭▭▭▭", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟻𝟶 ▬▬▬▬▬▭▭▭▭▭", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟼𝟶 ▬▬▬▬▬▬▭▭▭▭", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟼𝟶 ▬▬▬▬▬▬▭▭▭▭", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟽𝟶 ▬▬▬▬▬▬▬▭▭▭", link_preview=None)
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟽𝟶 ▬▬▬▬▬▬▬▭▭▭", link_preview=None)
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟾𝟶 ▬▬▬▬▬▬▬▬▭▭", link_preview=None) 
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟾𝟶 ▬▬▬▬▬▬▬▬▭▭", link_preview=None) 
             await asyncio.sleep(1)
-            await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟿𝟶 ▬▬▬▬▬▬▬▬▬▭", link_preview=None) 
+            await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ جارى بدء تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟿𝟶 ▬▬▬▬▬▬▬▬▬▭", link_preview=None) 
             await asyncio.sleep(1)
-            dl =  await event.edit(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ انتهي تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟷𝟶𝟶 ▬▬▬▬▬▬▬▬▬▬💯", link_preview=None)
+            dl =  await event.reply(f"ᯓ **[AndY ultra sourece Multi HUNTER](t.me/isAndreew)**\n**•─────────────────•**\n\n**⇜ انتهي تجهيز الصيد على عدد {tr} يوزرات  .. انتظـر . . .🌐**\n\n%𝟷𝟶𝟶 ▬▬▬▬▬▬▬▬▬▬💯", link_preview=None)
             await sleep(1)
             await dl.delete()
 
@@ -1251,7 +602,7 @@ async def _(event):
 
                     ch = replly.text
 
-                    await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ النـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+                    await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ النـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
 
                 else:
             
@@ -1272,7 +623,7 @@ async def _(event):
                     except Exception:
                         pass
 
-                    await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ علـى النـوع** {choice} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+                    await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ علـى النـوع** {choice} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
 
             except Exception as e:
 
@@ -1343,33 +694,42 @@ async def _(event):
         await event.client.send_message(event.chat_id, " مبروك ") 
 #############################################################################
 # التحكم بالصيد
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف الصيد(.*)")) 
+ownerhson_id = 6331807574
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.ايقاف الصيد(.*)")) 
 async def _(event):
+	sender = await event.get_sender()
+    if sender.id == ownerhson_id:
     if "on" in isclaim:
         isclaim.clear()
         isclaim.append("off")
         trys = 0
-        await event.edit("**- تم إيقـاف عمليـة الصيد .. بنجـاح ✓**")
+        await event.reply("**- تم إيقـاف عمليـة الصيد .. بنجـاح ✓**")
     elif "off" in isclaim:
-        await event.edit("**✥┊ لا تـوجـد عـملية صـيد جاريـة حـالـيًا .**")
+        await event.reply("**✥┊ لا تـوجـد عـملية صـيد جاريـة حـالـيًا .**")
     else:
-        await event.edit("**- لقد حدث خطأ ما وتوقف الامر لديك**")
-            
+        await event.reply("**- لقد حدث خطأ ما وتوقف الامر لديك**")
+        
+   ownerhson_id = 6331807574         
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
 async def _(event):
+	sender = await event.get_sender()
+    if sender.id == ownerhson_id:
     if ispay[0] == "yes":
         if "on" in isclaim:
-            await event.edit(f"الصيد وصل لـ({trys}) من المحاولات")
+            await event.reply(f"الصيد وصل لـ({trys}) من المحاولات")
         elif "off" in isclaim:
-            await event.edit("لايوجد صيد شغال !")
+            await event.reply("لايوجد صيد شغال !")
         else:
-            await event.edit("خطأ")
+            await event.reply("خطأ")
     else:
         pass
 #############################################################################
     #تثبيت البوتات
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت_بوتات (.*)"))
+    ownerhson_id = 6331807574
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.تثبيت_بوتات (.*)"))
 async def _(event):
+	sender = await event.get_sender()
+    if sender.id == ownerhson_id:
     if ispay[0] == "yes":
         user = await event.get_sender()
         uss = user.username   
@@ -1389,13 +749,13 @@ async def _(event):
             username = username
 
         if not username.lower().endswith("bot"):
-            await event.edit("**● عـذرًا عـزيـزي اليوزر خطـأ ❌**\n**● استخـدم الامـر كالتالـي**\n**● أرسـل (**`..تثبيت_بوتات`** + يوزر البوت نهايته(bot))**")
+            await event.reply("**● عـذرًا عـزيـزي اليوزر خطـأ ❌**\n**● استخـدم الامـر كالتالـي**\n**● أرسـل (**`..تثبيت_بوتات`** + يوزر البوت نهايته(bot))**")
             isclaim.clear()
             isclaim.append("off")
             trys = 0
             Checking = False
         elif username.lower().endswith("bot"):
-            await event.edit(f"**⎉╎تم بـدء التثبيت .. بنجـاح ☑️**\n**⎉╎اليـوزر المثبت ( {username} )**\n**⎉╎لمعرفـة تقـدم عمليـة التثبيت (**`.حالة التثبيت`**)**\n**⎉╎لـ ايقـاف عمليـة التثبيت (**`.ايقاف التثبيت`**)**")
+            await event.reply(f"**⎉╎تم بـدء التثبيت .. بنجـاح ☑️**\n**⎉╎اليـوزر المثبت ( {username} )**\n**⎉╎لمعرفـة تقـدم عمليـة التثبيت (**`.حالة التثبيت`**)**\n**⎉╎لـ ايقـاف عمليـة التثبيت (**`.ايقاف التثبيت`**)**")
             Checking = True
             while Checking:
                 if ispay[0] == 'no':
@@ -1520,7 +880,7 @@ async def _(event):
             
             ch = replly.text
             cmodels = True
-            await event.edit(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ على القناة ( {ch} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
+            await event.reply(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ على القناة ( {ch} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
         else:
             user = await event.get_sender()
             uss = user.username   
@@ -1543,7 +903,7 @@ async def _(event):
                 pass
 
             cmodels = True
-            await event.edit(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
+            await event.reply(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
 
     except Exception as e:
         
@@ -1660,7 +1020,7 @@ async def _(event):
     zelzal = str(event.pattern_match.group(1))
     if not zelzal.startswith('@'):
         return await edit_or_reply(event, "**⎉╎عـذراً عـزيـزي المدخـل خطـأ ❌**\n**⎉╎استخـدم الامـر كالتالـي**\n**⎉╎ارسـل (**`.تثبيت_حساب`** + اليـوزر)**")
-    await event.edit(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {zelzal} )**\n**✥┊ نوع التثبيت :- حساب **\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
+    await event.reply(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {zelzal} )**\n**✥┊ نوع التثبيت :- حساب **\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
     
     isclaim.clear()
     isclaim.append("on")
@@ -1778,21 +1138,21 @@ async def _(event):
         isclaim.clear()
         isclaim.append("off")
         trys1 = 0
-        await event.edit("**- تم إيقـاف عمليـة التثبيت .. بنجـاح ✓**")
+        await event.reply("**- تم إيقـاف عمليـة التثبيت .. بنجـاح ✓**")
     elif "off" in isclaim:
-        await event.edit("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
+        await event.reply("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
     else:
-        await event.edit("**- لقد حدث خطأ ما وتوقف الامر لديك**")
+        await event.reply("**- لقد حدث خطأ ما وتوقف الامر لديك**")
 
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.حالة التثبيت"))
 async def _(event):
     if "on" in isclaim:
-        await event.edit(f"التثبيت وصل لـ({trys}) من المحاولات")
+        await event.reply(f"التثبيت وصل لـ({trys}) من المحاولات")
     elif "off" in isclaim:
-        await event.edit("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
+        await event.reply("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
     else:
-        await event.edit("**- لقد حدث خطأ ما وتوقف الامر لديك**")
+        await event.reply("**- لقد حدث خطأ ما وتوقف الامر لديك**")
 ############################################################################################
         
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
@@ -1813,7 +1173,7 @@ async def filter_banned_users(event):
         try:
             if replly and replly.text.startswith('@'): 
                 ch = replly.text
-                await event.edit(f"**✥┊سيتم الان تصفية المبند**")
+                await event.reply(f"**✥┊سيتم الان تصفية المبند**")
             else:
                 user = await event.get_sender()
                 uss = user.username   
@@ -1836,7 +1196,7 @@ async def filter_banned_users(event):
                 except Exception:
                     pass
 
-                await event.edit(f"**✥┊سيتم الان تصفية المبند**")
+                await event.reply(f"**✥┊سيتم الان تصفية المبند**")
         except Exception as e:
             await IEX.send_message(event.chat_id, f"خطأ في انشاء القناة , الخطأ**-  : {str(e)}**")
 
@@ -1909,11 +1269,11 @@ async def filter_banned_users(event):
 async def check_filter_status(event):
     if ispay[0] == "yes":
         if "on" in isfiltering:
-            await event.edit(f"التصفية وصلت لـ({ftrys}) من المحاولات")
+            await event.reply(f"التصفية وصلت لـ({ftrys}) من المحاولات")
         elif "off" in isfiltering:
-            await event.edit("لاتوجد تصفية شغال !")
+            await event.reply("لاتوجد تصفية شغال !")
         else:
-            await event.edit("خطأ")
+            await event.reply("خطأ")
     else:
         pass
 ################################################################
@@ -1924,18 +1284,18 @@ async def check_filter_status(event):
 #         if event.pattern_match.group(1) is not None:
 #             type_number = int(event.pattern_match.group(1))
 #             if type_number == 1:
-#                 await event.edit(Types["Types1"])
+#                 await event.reply(Types["Types1"])
 #             elif type_number == 2:
-#                 await event.edit(Types["Types2"])
+#                 await event.reply(Types["Types2"])
 #             elif type_number == 3:
-#                 await event.edit(Types["Types3"])
+#                 await event.reply(Types["Types3"])
 #         else:
-#             await event.edit(Types["Types1"])
+#             await event.reply(Types["Types1"])
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
 async def show_type(event):
     if ispay[0] == "yes":
-        await event.edit(Main_Types, link_preview=None)    
+        await event.reply(Main_Types, link_preview=None)    
 
 ################################################################
     #الانواع التلقائية
@@ -1945,17 +1305,17 @@ async def show_type(event):
 #         if event.pattern_match.group(1) is not None:
 #             type_number = int(event.pattern_match.group(1))
 #             if type_number == 1:
-#                 await event.edit(Auto_Checker["Types1"])
+#                 await event.reply(Auto_Checker["Types1"])
 #             elif type_number == 2:
-#                 await event.edit(Auto_Checker["Types2"])
+#                 await event.reply(Auto_Checker["Types2"])
 #             elif type_number == 3:
-#                 await event.edit(Auto_Checker["Types3"])
+#                 await event.reply(Auto_Checker["Types3"])
 #         else:
-#             await event.edit(Auto_Checker["Types1"])
+#             await event.reply(Auto_Checker["Types1"])
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.النوع"))
 async def show_type(event):
     if ispay[0] == "yes":
-        await event.edit(Main_Auto_Checker, link_preview=None)
+        await event.reply(Main_Auto_Checker, link_preview=None)
 #===================================================================
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.ج"))
 async def _(event):
@@ -1974,7 +1334,7 @@ async def _(event):
         await IEX.send_message(event.chat_id, f"{str(uss2)}")
         await IEX.send_message(event.chat_id, f"{str(uss3)}")
         await IEX.send_message(event.chat_id, f"{str(uss4)}")
-        await event.edit(f"""
+        await event.reply(f"""
 [ AndY ultra sourece Hunter Source ](t.me/isAndreew)
 ـ●━━━━━━━━━━━━━━●
 ✥┊⌔ مـرحبـاً عـزيـزي {mention}
@@ -2019,7 +1379,7 @@ async def _(event):
 #        current_type = f"Types{int(current_type[-1]) + 1}"
 #        types_text = Types[current_type]
 #        buttons = generate_navigation_buttons(current_type, len(Types))
-#        await event.edit(types_text, buttons=buttons)
+#        await event.reply(types_text, buttons=buttons)
 #
 #@IEX.on(events.CallbackQuery(data="previous"))
 #async def show_previous_types(event):
@@ -2028,4 +1388,4 @@ async def _(event):
 #        current_type = f"Types{int(current_type[-1]) - 1}"
 #        types_text = Types[current_type]
 #        buttons = generate_navigation_buttons(current_type, len(Types))
-#        await event.edit(types_text, buttons=buttons)
+#        await event.reply(types_text, buttons=buttons)
