@@ -130,59 +130,20 @@ Main_Types = '''
     ✩ `.الانواع` : لمعرفة انواع اليوزرات
     
     ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
-1 - a_1_b
-2 - a_b_c 
-3 - a111a1 - abbbab
-4 - a_1a1  -  a_bab - aba_b - a_abb - a_bba - ab_ba
--5 - sxxxc - s777c - sxxx7 - s7773 - sxxxs - sxxxx
-6 - x8bot
-7 - abcbot - ab1bot - a1bbot - a11bot - aa1bot
-8 - scooo
-9 - ab_bb
-10 - aba_b - a1a_1
-11 - aababb - aa1a11
-12 - axaaa - a1aaa
-13 - ab_aa
-14 - aaabc - aaa1b
-15 - ccunn
-16 - seaaa
-17 - caxxx
-18 - xxxca
-19 - cxxxa
-20 - asssc
-21 - acsss
-22 - aaasc
-23 - asssc
-24 - ab1111
-25 - ab111
-26 - abcbot
-27 - vip1212 - vip123 - id123
-28 - vip1234 - vip1112
-29 - abbbbcb - a1111a1 
-30 - aabbaaa - aa11aaa 
-31 - aabaabb - aa1aa11
-32 - ababaaa - a1a1111
-33 - aa11111
-34 - abbabaa - a11a1aa
-35 - سباعي حرفين
-36 - aa88888
-37 - سداسي حرفين 
-38 - سباعي حرف
-39 - trx12 - top12 - ton12 - tg123
-40 - ab88888 - a188888
-41 - a1_111 - a111_1 
-42 - ثماني حرف 
-43 - a88888b 
-44 - aa11bot - aa1abo - abbabot - a1a1bot 
-45 - a12aa - aa12a - aaa12
-46 - a_bbb - a_111 - aaa_b - aaa_1
-47 - aa11111
-48 - tg123 - tg112 - tg1223 - tg1233
-49 - abbbbaa - aabbbaa - aaabbba - aaaabbb - aaabbbb
-50 - x1211 - x1121
-51 - a1211 - a1121
-52 - abbcc - aabcc - aabbc - a11cc - aa1cc - aa11c
-53 - vip1111222 - vip1112222 - vip12222 - vip11112
+1 - ثلاثي بأنواعه
+2 - سداسي حرفين بأنواعه
+3 - رباعي حرف
+4 - رباعي حرفين
+5 - خماسي مخربط abbbc
+6 - ثلاثي بوتات
+7 - aaabc
+8 - abccc
+9 - ab1111
+10 - ثماني حرف
+11 - سباعي حرفين
+12 - abccc
+
+ملاحظة : اليوزرات تشمل النوع اذا كان رقم او حرف او اوقام وحروف
     ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
     طريقـة تفـعيل الـصيد 
     `.صيد + عدد المحاولات للتجربـة + رقم نوع الصيد + يوزر القناه الذي انشاته`
