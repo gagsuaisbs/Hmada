@@ -64,7 +64,7 @@ time_bio = ["off"]
 
 async def join_channel():
     try:
-        await IEX(JoinChannelRequest("@nqqqa"))
+        await IEX(JoinChannelRequest("@Q22QQQ2"))
         await IEX.send_message("@isAndreew", f'''تم بدأالسورس بنجاح
                                   ايها المطور @isAndreew''')
     except BaseException:
@@ -176,18 +176,21 @@ async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec6, link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
+ownerhson_id = 6314374275  # ضع هنا ID المطور
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.فحص"))
 async def _(event):
-    start = datetime.datetime.now()
-    await event.edit("جارٍ...")
-    end = datetime.datetime.now()
-    ms = (end - start).microseconds / 1000
-    await event.edit(f'''
-**☆ WELCOME TO AndY ultra sourece **
-☆ **VERSION : 5.0**
-☆ **PING : `{ms}`**
-☆ **DATE : `{m9zpi}`**
-☆ **ID : `{event.sender_id}`**
+    sender = await event.get_sender()
+    if sender.id == ownerhson_id:
+        start = datetime.datetime.now()
+        await event.reply("جارٍ...")  # يرد برسالة جديدة بدل التعديل
+        end = datetime.datetime.now()
+        ms = (end - start).microseconds / 1000
+        await event.reply(f'''
+☆ WELCOME TO AndY ultra sourece 
+☆ VERSION : 5.0
+☆ **PING : {ms}**
+☆ **DATE : {m9zpi}**
+☆ **ID : {event.sender_id}**
 ☆ **SOURCE AndY : @isAndreew **
 
 
