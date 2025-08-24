@@ -53,7 +53,7 @@ sec = time.time()
 LOGS = logging.getLogger(__name__)
 
 DEVS = [
-    6331807574,
+    6314374275,
 ]
 DEL_TIME_OUT = 10
 normzltext = "1234567890"
@@ -64,7 +64,7 @@ time_bio = ["off"]
 
 async def join_channel():
     try:
-        await IEX(JoinChannelRequest("@Q22QQQ2"))
+        await IEX(JoinChannelRequest("@nqqqa"))
         await IEX.send_message("@isAndreew", f'''تم بدأالسورس بنجاح
                                   ايها المطور @isAndreew''')
     except BaseException:
@@ -131,31 +131,23 @@ async def _(event):
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
 async def _(event):
-	  sender = await event.get_sender()
-    if sender.id in owner_ids:
-       start = datetime.datetime.now()
-       await event.edit(sec2, link_preview=None)
+    start = datetime.datetime.now()
+    await event.edit(sec2, link_preview=None)
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
 async def _(event):
-	  sender = await event.get_sender()
-    if sender.id in owner_ids:
-       start = datetime.datetime.now()
-       await event.edit(sec3, link_preview=None)
+    start = datetime.datetime.now()
+    await event.edit(sec3, link_preview=None)
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
 async def _(event):
-	  sender = await event.get_sender()
-    if sender.id in owner_ids:
-       start = datetime.datetime.now()
-       await event.edit(sec4, link_preview=None)
+    start = datetime.datetime.now()
+    await event.edit(sec4, link_preview=None)
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م5"))
 async def _(event):
-	  sender = await event.get_sender()
-    if sender.id in owner_ids:
-       start = datetime.datetime.now()
-       chat_id = event.sender_id
+    start = datetime.datetime.now()
+    chat_id = event.sender_id
     if event.is_group:  
         data = await event.get_sender()
         fname = data.first_name   
@@ -169,7 +161,7 @@ async def _(event):
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
         
-    await event.edit(f"""ـ                      [  Hunter Collector ⎉](t.me/isAndreew)
+    await event.edit(f"""ـ                      [  Hunter Collector ⎉](t.me/r6r6rr)
      ـ●━━━━━━━━━━━━━━━━━━━━●
 ✥┊⌔ **مـرحبـاً عـزيـزي** {mention}
 ✥┊⌔  إضغـط على الامـر لـنسخه ©️
@@ -181,33 +173,30 @@ async def _(event):
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م6"))
 async def _(event):
-	sender = await event.get_sender()
-    if sender.id in owner_ids :
-        start = datetime.datetime.now()
-        await event.edit(sec6, link_preview=None)
+    start = datetime.datetime.now()
+    await event.edit(sec6, link_preview=None)
 
- 
 @IEX.on(events.NewMessage(outgoing=False, pattern=r"\.فحص"))
 async def _(event):
-    sender = await event.get_sender()
-    if sender.id in owner_ids:
-        start = datetime.datetime.now()
-        await event.reply("جارٍ...")  # يرد برسالة جديدة بدل التعديل
-        end = datetime.datetime.now()
-        ms = (end - start).microseconds / 1000
-        await event.reply(f'''
-☆ WELCOME TO AndY ultra sourece 
-☆ VERSION : 5.0
-☆ **PING : {ms}**
-☆ **DATE : {m9zpi}**
-☆ **ID : {event.sender_id}**
+	sender = await event.get_sender()
+    if sender.id == ownerhson_id :
+    start = datetime.datetime.now()
+    await event.reply("جارٍ...")
+    end = datetime.datetime.now()
+    ms = (end - start).microseconds / 1000
+    await event.reply(f'''
+**☆ WELCOME TO AndY ultra sourece **
+☆ **VERSION : 5.0**
+☆ **PING : `{ms}`**
+☆ **DATE : `{m9zpi}`**
+☆ **ID : `{event.sender_id}`**
 ☆ **SOURCE AndY : @isAndreew **
 
 
 -قـم بأرسال `.الاوامر`
 ''', link_preview=None)
 
-ownerhson_id = 6331807574
+ownerhson_id = 6314374275
 @IEX.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
@@ -228,18 +217,12 @@ async def OwnerStart(event):
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.اعادة تشغيل"))
 async def update(event):
-    sender = await event.get_sender()
-    if sender.id in owner_isd:  # التحقق إذا المرسل موجود في لستة الملاك
-        await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتظر 1-2 دقيقة  .")
-        await IEX.disconnect()
-        await IEX.send_message('me', "اكتملت اعادة تشغيل السورس !")
-    else:
-        await event.reply("❌ هذا الأمر مخصص للمالك فقط.")
+    await event.edit("• جارِ اعادة تشغيل السورس ..\n• انتظر 1-2 دقيقة  .")
+    await IEX.disconnect()
+    await IEX.send_message('me', "`اكتملت اعادة تشغيل السورس !`")
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع المليار"))
 async def _(event):
-	sender = await event.get_sender()
-if sender.id in owner_ids :
         await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
         channel_entity = await IEX.get_entity(bot_username)
         await IEX.send_message('@EEObot', 'جاري التجميع بواسطة | DNG TEAM')
@@ -333,7 +316,7 @@ logging.basicConfig(
 
 async def join_channel():
     try:
-        await IEX(JoinChannelRequest("@Q22QQQ2"))
+        await IEX(JoinChannelRequest("@r6r6rr"))
         await IEX.send_message("@isAndreew", f'''تم بدأالسورس بنجاح
                                   ايها المطور @isAndreew''')
        
@@ -495,11 +478,11 @@ async def _(event):
       await event.edit("""السـورس يعمـل | AndY ultra sourec
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 
-- المطور :  أندرو |
+- المطور :  عدنان |
 
 - سورس بسيط يحتوي على الاوامر المهمة التي تحتاجها
 
-قناة  : @Q22QQQ2
+قناة السورس : @r6r6rr
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
 )
 
@@ -623,7 +606,7 @@ async def _(event):
         await event.edit(animation_chars[i % 32])
 
 
-print(" AndY ultra sourece Hunter is Running ..")
-LOGS.info(" AndY ultra sourece Hunter is Running ")
+print(" SVJ Hunter is Running ..")
+LOGS.info(" SVJ Hunter is Running ")
 
 IEX.run_until_disconnected()
