@@ -52,9 +52,9 @@ sec = time.time()
 
 LOGS = logging.getLogger(__name__)
 
-DEVS = [
-    6314374275,
-]
+ADMINS = [6314374275, 6331807574]  # ضيف أي ID ثاني هنا
+
+
 DEL_TIME_OUT = 10
 normzltext = "1234567890"
 namerzfont = normzltext
@@ -64,7 +64,7 @@ time_bio = ["off"]
 
 async def join_channel():
     try:
-        await IEX(JoinChannelRequest("@nqqqa"))
+        await IEX(JoinChannelRequest("@Q22QQQ2"))
         await IEX.send_message("@isAndreew", f'''تم بدأالسورس بنجاح
                                   ايها المطور @isAndreew''')
     except BaseException:
@@ -80,14 +80,14 @@ async def _(event):
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
     elif event.is_channel:
-        mention = f"المنصب : **المطور [AndY ultra sourec](tg://user?id={6314374275})**"
+        mention = f"المنصب : **المطور [SVJ](tg://user?id={1421814874})**"
     else:
         data = await event.get_sender()
         fname = data.first_name   
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
         
-    await event.edit(f"""ـ               [ AndY ultra sourec Hunter Source ]
+    await event.edit(f"""ـ               [ AndY ultra sourece Source ]
      ـ●━━━━━━━━━━━━━━●
 ✥┊⌔ **مـرحبـاً عـزيـزي** {mention} 
 ✥┊⌔  إضغـط على الامـر لـنسخه ©️
@@ -111,14 +111,14 @@ async def _(event):
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
     elif event.is_channel:
-        mention = f"المنصب : **المطور (tg://user?id={6314374275})**"
+        mention = f"المنصب : **المطور (tg://user?id={1421814874})**"
     else:
         data = await event.get_sender()
         fname = data.first_name   
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
         
-    await event.edit(f"""ـ                [ AndY ultra sourec Hunter Setting AndY ultra sourec ]
+    await event.edit(f"""ـ                [ AndY ultra sourece Setting SVJ ]
      ـ●━━━━━━━━━━━━━━━━●
 ✥┊⌔ **مـرحبـاً عـزيـزي** {mention}
 ✥┊⌔  إضغـط على الامـر لـنسخه ©️
@@ -161,7 +161,7 @@ async def _(event):
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
         
-    await event.edit(f"""ـ                      [  Hunter Collector ⎉](t.me/r6r6rr)
+    await event.edit(f"""ـ                      [  Hunter Collector ⎉](t.me/Q22QQQ2)
      ـ●━━━━━━━━━━━━━━━━━━━━●
 ✥┊⌔ **مـرحبـاً عـزيـزي** {mention}
 ✥┊⌔  إضغـط على الامـر لـنسخه ©️
@@ -178,25 +178,23 @@ async def _(event):
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
 async def _(event):
-    sender = await event.get_sender()
-    if sender.id == ownerhson_id:
-        start = datetime.datetime.now()
-        await event.edit("جارٍ...")
-        end = datetime.datetime.now()
-        ms = (end - start).microseconds / 1000
-        await event.edit(f'''
-☆ WELCOME TO AndY ultra sourece 
-☆ VERSION : 5.0
-☆ **PING : {ms}**
-☆ **DATE : {m9zpi}**
-☆ **ID : {event.sender_id}**
+    start = datetime.datetime.now()
+    await event.edit("جارٍ...")
+    end = datetime.datetime.now()
+    ms = (end - start).microseconds / 1000
+    await event.edit(f'''
+**☆ WELCOME TO AndY ultra sourece **
+☆ **VERSION : 5.0**
+☆ **PING : `{ms}`**
+☆ **DATE : `{m9zpi}`**
+☆ **ID : `{event.sender_id}`**
 ☆ **SOURCE AndY : @isAndreew **
 
 
 -قـم بأرسال `.الاوامر`
 ''', link_preview=None)
 
-ownerhson_id = 6314374275
+ADMINS = [6314374275, 6331807574]  # ضيف أي ID ثاني هنا
 @IEX.on(events.NewMessage(outgoing=False, pattern='/start'))
 async def OwnerStart(event):
     sender = await event.get_sender()
@@ -316,7 +314,7 @@ logging.basicConfig(
 
 async def join_channel():
     try:
-        await IEX(JoinChannelRequest("@r6r6rr"))
+        await IEX(JoinChannelRequest("@Q22QQQ2"))
         await IEX.send_message("@isAndreew", f'''تم بدأالسورس بنجاح
                                   ايها المطور @isAndreew''')
        
@@ -475,14 +473,14 @@ async def spammer(event):
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=".سورس"))
 async def _(event):
-      await event.edit("""السـورس يعمـل | AndY ultra sourec
+      await event.edit("""السـورس يعمـل | SVJ
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 
-- المطور :  عدنان |
+- المطور :  أندرو |
 
 - سورس بسيط يحتوي على الاوامر المهمة التي تحتاجها
 
-قناة السورس : @r6r6rr
+قناة السورس : @Q22QQQ2
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
 )
 
@@ -606,9 +604,7 @@ async def _(event):
         await event.edit(animation_chars[i % 32])
 
 
-print(" SVJ Hunter is Running ..")
-LOGS.info(" SVJ Hunter is Running ")
+print(" AndY ultra sourece is Running ..")
+LOGS.info(" AndY ultra sourece is Running ")
 
 IEX.run_until_disconnected()
-
-
