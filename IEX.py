@@ -180,11 +180,11 @@ async def _(event):
 async def _(event):
 	sender = await event.get_sender()
     if sender.id == ownerhson_id :
-    start = datetime.datetime.now()
-    await event.reply("جارٍ...")
-    end = datetime.datetime.now()
-    ms = (end - start).microseconds / 1000
-    await event.reply(f'''
+        start = datetime.datetime.now()
+        await event.reply("جارٍ...")
+        end = datetime.datetime.now()
+        ms = (end - start).microseconds / 1000
+        await event.reply(f'''
 **☆ WELCOME TO AndY ultra sourece **
 ☆ **VERSION : 5.0**
 ☆ **PING : `{ms}`**
@@ -610,3 +610,4 @@ print(" SVJ Hunter is Running ..")
 LOGS.info(" SVJ Hunter is Running ")
 
 IEX.run_until_disconnected()
+
