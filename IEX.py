@@ -176,20 +176,20 @@ async def _(event):
     start = datetime.datetime.now()
     await event.edit(sec6, link_preview=None)
 
-@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.فحص"))
+@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.فحص"))
 async def _(event):
-	sender = await event.get_sender()
-    if sender.id == ownerhson_id :
+    sender = await event.get_sender()
+    if sender.id == ownerhson_id:
         start = datetime.datetime.now()
-        await event.reply("جارٍ...")
+        await event.edit("جارٍ...")
         end = datetime.datetime.now()
         ms = (end - start).microseconds / 1000
-        await event.reply(f'''
-**☆ WELCOME TO AndY ultra sourece **
-☆ **VERSION : 5.0**
-☆ **PING : `{ms}`**
-☆ **DATE : `{m9zpi}`**
-☆ **ID : `{event.sender_id}`**
+        await event.edit(f'''
+☆ WELCOME TO AndY ultra sourece 
+☆ VERSION : 5.0
+☆ **PING : {ms}**
+☆ **DATE : {m9zpi}**
+☆ **ID : {event.sender_id}**
 ☆ **SOURCE AndY : @isAndreew **
 
 
@@ -610,4 +610,5 @@ print(" SVJ Hunter is Running ..")
 LOGS.info(" SVJ Hunter is Running ")
 
 IEX.run_until_disconnected()
+
 
