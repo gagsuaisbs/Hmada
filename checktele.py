@@ -29,11 +29,13 @@ except ModuleNotFoundError:
     from nltk.corpus import words
     nltk.download('words')
 
-LOGS = logging.getLogger(name)
+LOGS = logging.getLogger(__name__)
+
 
 
 
 english_words = set(words.words())
+owner_ids = [6331807574, 5725191363]
 
 a = 'qwertyuiopassdfghjklzxcvbnm'
 b = '1234567890'
@@ -50,6 +52,20 @@ with open("banned.txt", "r") as f:
 
 que = Queue()
 
+
+# def check_user(username):
+#     url = "https://t.me/"+str(username)
+#     headers = {
+#         "User-Agent": generate_user_agent(),
+#         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
+#         "Accept-Encoding": "gzip, deflate, br",
+#         "Accept-Language": "ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7"}
+
+#     response = requests.get(url, headers=headers)
+#     if response.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"') >= 0:
+#         return "Available"
+#     else:
+#         return "Unavailable"
 def check_user(username):
     url = "https://t.me/"+str(username)
     headers = {
@@ -57,11 +73,12 @@ def check_user(username):
         "Accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8",
         "Accept-Encoding": "gzip, deflate, br",
         "Accept-Language": "ar-EG,ar;q=0.9,en-US;q=0.8,en;q=0.7"}
-    response = requests.get(url, headers=headers)
-    if response.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"') >= 0:
-        return "Available"
-    else:
-        return "Unavailable"
+    try:
+        response = requests.get(url, headers=headers)
+        if response.text.find('If you have <strong>Telegram</strong>, you can contact <a class="tgme_username_link"') >= 0:
+            return "Available"
+        else:
+            return "Unavailable"
     except Exception:
         return "error"
 
@@ -279,9 +296,9 @@ def gen_user(choice):
 #############################################################################
 #الصيد العادى 
 # صيد عدد نوع قناة  
-@IEX.on(events.NewMessage(pattern=r"\.صيد (.*)"))
+@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
 async def _(event):
-    if (event.sender_id in owner_ids or event.out):
+    if ispay[0] == "yes":
         user = await event.get_sender()
         uss = user.username   
         IEX_USER = f"| @{uss}" if uss else ""
@@ -299,14 +316,14 @@ async def _(event):
         except Exception as ee:
             ch = None
 
-        if int(choice) < 1 or int(choice) > 12:
-            await event.reply(f"هذا النوع غير موجود")
+        if int(choice) < 1 or int(choice) > 53:
+            await event.edit(f"هذا النوع غير موجود")
             isclaim.clear()
             isclaim.append("off")
             trys = 0
             return await event.client.send_message(event.chat_id, "! تم ايقاف الصيد")
         else:
-            await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+            await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
             await asyncio.sleep(1)
 
         if ch == None:
@@ -316,13 +333,13 @@ async def _(event):
 
                     ch = replly.text
 
-                    await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+                    await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** {ch} \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
 
                 else:
             
                     ch = await IEX(functions.channels.CreateChannelRequest(
                     title=" AndY ultra sourece Hunting Channal ",
-                    about=f"This channel to hunt usernames by none 😝",
+                    about=f"This channel to hunt usernames by - @isAndreew,  {IEX_USER}",
                     ))
             
                     ch = ch.updates[1].channel_id
@@ -343,7 +360,7 @@ async def _(event):
 
                     invite_link = invite.link
 
-                    await event.reply(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** [اضغط هنا]({invite_link}) \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
+                    await event.edit(f"**✥┊ تم بـدء الصيد .. بنجـاح ☑️**\n**✥┊ بالنـوع** {choice} \n**✥┊ على القنـاة** [اضغط هنا]({invite_link}) \n**✥┊ عدد المحاولات** {msg[0]} \n**✥┊ لمعرفـة تقـدم عمليـة الصيد (** `.حالة الصيد` **)**\n**✥┊ لـ ايقـاف عمليـة الصيد (** `.ايقاف الصيد` **)**")
 
             except Exception as e:
 
@@ -409,9 +426,12 @@ async def _(event):
 
     # الصيد التلقائى بالرد على قناة او انشائها تلقائيا صياد + نوع تلقائى + عدد اليوزرات المطلوب 
 
-@IEX.on(events.NewMessage(pattern=r"\.صياد (.*)"))
+ownerhson_id = 6314374275
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.صياد (.*)"))
 async def _(event):
-    if (event.sender_id in owner_ids or event.out) and ispay[0] == "yes":
+	  sender = await event.get_sender()
+    if sender.id == ownerhson_id :
+    if ispay[0] == "yes":
         user = await event.get_sender()
         uss = user.username   
         IEX_USER = f"| @{uss}" if uss else ""
@@ -427,7 +447,7 @@ async def _(event):
         tr = int(msg[1]) if len(msg) > 1 and msg[1].isdigit() else 1
         
         if choice not in (""):
-            if int(choice) < 1 or int(choice) > 12:                                                                                                 
+            if int(choice) < 1 or int(choice) > 53:                                                                                                 
                 await event.reply(f"هذا النوع غير موجود")
                 isclaim.clear()
                 isclaim.append("off")
@@ -673,8 +693,11 @@ async def _(event):
         await event.client.send_message(event.chat_id, " مبروك ") 
 #############################################################################
 # التحكم بالصيد
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف الصيد(.*)")) 
+ownerhson_id = 6314374275
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.ايقاف الصيد(.*)")) 
 async def _(event):
+	  sender = await event.get_sender()
+    if sender.id == ownerhson_id :
     if "on" in isclaim:
         isclaim.clear()
         isclaim.append("off")
@@ -684,16 +707,19 @@ async def _(event):
         await event.reply("**✥┊ لا تـوجـد عـملية صـيد جاريـة حـالـيًا .**")
     else:
         await event.reply("**- لقد حدث خطأ ما وتوقف الامر لديك**")
-            
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
+    
+ownerhson_id = 6314374275      
+@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.حالة الصيد"))
 async def _(event):
+	  sender = await event.get_sender()
+    if sender.id == ownerhson_id :
     if ispay[0] == "yes":
         if "on" in isclaim:
             await event.reply(f"الصيد وصل لـ({trys}) من المحاولات")
         elif "off" in isclaim:
             await event.reply("لايوجد صيد شغال !")
         else:
-            await event.reply("خطأ")
+            await event.edit("خطأ")
     else:
         pass
 #############################################################################
@@ -719,13 +745,13 @@ async def _(event):
             username = username
 
         if not username.lower().endswith("bot"):
-            await event.reply("**● عـذرًا عـزيـزي اليوزر خطـأ ❌**\n**● استخـدم الامـر كالتالـي**\n**● أرسـل (**`..تثبيت_بوتات`** + يوزر البوت نهايته(bot))**")
+            await event.edit("**● عـذرًا عـزيـزي اليوزر خطـأ ❌**\n**● استخـدم الامـر كالتالـي**\n**● أرسـل (**`..تثبيت_بوتات`** + يوزر البوت نهايته(bot))**")
             isclaim.clear()
             isclaim.append("off")
             trys = 0
             Checking = False
         elif username.lower().endswith("bot"):
-            await event.reply(f"**⎉╎تم بـدء التثبيت .. بنجـاح ☑️**\n**⎉╎اليـوزر المثبت ( {username} )**\n**⎉╎لمعرفـة تقـدم عمليـة التثبيت (**`.حالة التثبيت`**)**\n**⎉╎لـ ايقـاف عمليـة التثبيت (**`.ايقاف التثبيت`**)**")
+            await event.edit(f"**⎉╎تم بـدء التثبيت .. بنجـاح ☑️**\n**⎉╎اليـوزر المثبت ( {username} )**\n**⎉╎لمعرفـة تقـدم عمليـة التثبيت (**`.حالة التثبيت`**)**\n**⎉╎لـ ايقـاف عمليـة التثبيت (**`.ايقاف التثبيت`**)**")
             Checking = True
             while Checking:
                 if ispay[0] == 'no':
@@ -850,7 +876,7 @@ async def _(event):
             
             ch = replly.text
             cmodels = True
-            await event.reply(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ على القناة ( {ch} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
+            await event.edit(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ على القناة ( {ch} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
         else:
             user = await event.get_sender()
             uss = user.username   
@@ -873,7 +899,7 @@ async def _(event):
                 pass
 
             cmodels = True
-            await event.reply(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
+            await event.edit(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {username} )**\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
 
     except Exception as e:
         
@@ -990,7 +1016,7 @@ async def _(event):
     zelzal = str(event.pattern_match.group(1))
     if not zelzal.startswith('@'):
         return await edit_or_reply(event, "**⎉╎عـذراً عـزيـزي المدخـل خطـأ ❌**\n**⎉╎استخـدم الامـر كالتالـي**\n**⎉╎ارسـل (**`.تثبيت_حساب`** + اليـوزر)**")
-    await event.reply(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {zelzal} )**\n**✥┊ نوع التثبيت :- حساب **\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
+    await event.edit(f"**✥┊ تم بـدء التثبيت .. بنجـاح 🔥**\n**✥┊ اليـوزر المثبت ( {zelzal} )**\n**✥┊ نوع التثبيت :- حساب **\n**✥┊ لمعرفـة تقـدم عمليـة التثبيت أرسـل (**`.حالة التثبيت`**)**")
     
     isclaim.clear()
     isclaim.append("on")
@@ -1108,21 +1134,21 @@ async def _(event):
         isclaim.clear()
         isclaim.append("off")
         trys1 = 0
-        await event.reply("**- تم إيقـاف عمليـة التثبيت .. بنجـاح ✓**")
+        await event.edit("**- تم إيقـاف عمليـة التثبيت .. بنجـاح ✓**")
     elif "off" in isclaim:
-        await event.reply("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
+        await event.edit("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
     else:
-        await event.reply("**- لقد حدث خطأ ما وتوقف الامر لديك**")
+        await event.edit("**- لقد حدث خطأ ما وتوقف الامر لديك**")
 
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.حالة التثبيت"))
 async def _(event):
     if "on" in isclaim:
-        await event.reply(f"التثبيت وصل لـ({trys}) من المحاولات")
+        await event.edit(f"التثبيت وصل لـ({trys}) من المحاولات")
     elif "off" in isclaim:
-        await event.reply("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
+        await event.edit("**✥┊ لا تـوجـد عـملية تثبيت جاريـة حـالـيًا .**")
     else:
-        await event.reply("**- لقد حدث خطأ ما وتوقف الامر لديك**")
+        await event.edit("**- لقد حدث خطأ ما وتوقف الامر لديك**")
 ############################################################################################
         
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.اليوزرات المبندة"))
@@ -1143,7 +1169,7 @@ async def filter_banned_users(event):
         try:
             if replly and replly.text.startswith('@'): 
                 ch = replly.text
-                await event.reply(f"**✥┊سيتم الان تصفية المبند**")
+                await event.edit(f"**✥┊سيتم الان تصفية المبند**")
             else:
                 user = await event.get_sender()
                 uss = user.username   
@@ -1166,7 +1192,7 @@ async def filter_banned_users(event):
                 except Exception:
                     pass
 
-                await event.reply(f"**✥┊سيتم الان تصفية المبند**")
+                await event.edit(f"**✥┊سيتم الان تصفية المبند**")
         except Exception as e:
             await IEX.send_message(event.chat_id, f"خطأ في انشاء القناة , الخطأ**-  : {str(e)}**")
 
@@ -1239,11 +1265,11 @@ async def filter_banned_users(event):
 async def check_filter_status(event):
     if ispay[0] == "yes":
         if "on" in isfiltering:
-            await event.reply(f"التصفية وصلت لـ({ftrys}) من المحاولات")
+            await event.edit(f"التصفية وصلت لـ({ftrys}) من المحاولات")
         elif "off" in isfiltering:
-            await event.reply("لاتوجد تصفية شغال !")
+            await event.edit("لاتوجد تصفية شغال !")
         else:
-            await event.reply("خطأ")
+            await event.edit("خطأ")
     else:
         pass
 ################################################################
@@ -1254,18 +1280,18 @@ async def check_filter_status(event):
 #         if event.pattern_match.group(1) is not None:
 #             type_number = int(event.pattern_match.group(1))
 #             if type_number == 1:
-#                 await event.reply(Types["Types1"])
+#                 await event.edit(Types["Types1"])
 #             elif type_number == 2:
-#                 await event.reply(Types["Types2"])
+#                 await event.edit(Types["Types2"])
 #             elif type_number == 3:
-#                 await event.reply(Types["Types3"])
+#                 await event.edit(Types["Types3"])
 #         else:
-#             await event.reply(Types["Types1"])
+#             await event.edit(Types["Types1"])
 
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.الانواع"))
 async def show_type(event):
     if ispay[0] == "yes":
-        await event.reply(Main_Types, link_preview=None)    
+        await event.edit(Main_Types, link_preview=None)    
 
 ################################################################
     #الانواع التلقائية
@@ -1275,17 +1301,17 @@ async def show_type(event):
 #         if event.pattern_match.group(1) is not None:
 #             type_number = int(event.pattern_match.group(1))
 #             if type_number == 1:
-#                 await event.reply(Auto_Checker["Types1"])
+#                 await event.edit(Auto_Checker["Types1"])
 #             elif type_number == 2:
-#                 await event.reply(Auto_Checker["Types2"])
+#                 await event.edit(Auto_Checker["Types2"])
 #             elif type_number == 3:
-#                 await event.reply(Auto_Checker["Types3"])
+#                 await event.edit(Auto_Checker["Types3"])
 #         else:
-#             await event.reply(Auto_Checker["Types1"])
+#             await event.edit(Auto_Checker["Types1"])
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.النوع"))
 async def show_type(event):
     if ispay[0] == "yes":
-        await event.reply(Main_Auto_Checker, link_preview=None)
+        await event.edit(Main_Auto_Checker, link_preview=None)
 #===================================================================
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.ج"))
 async def _(event):
@@ -1304,7 +1330,7 @@ async def _(event):
         await IEX.send_message(event.chat_id, f"{str(uss2)}")
         await IEX.send_message(event.chat_id, f"{str(uss3)}")
         await IEX.send_message(event.chat_id, f"{str(uss4)}")
-        await event.reply(f"""
+        await event.edit(f"""
 [ AndY ultra sourece Hunter Source ](t.me/isAndreew)
 ـ●━━━━━━━━━━━━━━●
 ✥┊⌔ مـرحبـاً عـزيـزي {mention}
@@ -1349,7 +1375,7 @@ async def _(event):
 #        current_type = f"Types{int(current_type[-1]) + 1}"
 #        types_text = Types[current_type]
 #        buttons = generate_navigation_buttons(current_type, len(Types))
-#        await event.reply(types_text, buttons=buttons)
+#        await event.edit(types_text, buttons=buttons)
 #
 #@IEX.on(events.CallbackQuery(data="previous"))
 #async def show_previous_types(event):
@@ -1358,4 +1384,4 @@ async def _(event):
 #        current_type = f"Types{int(current_type[-1]) - 1}"
 #        types_text = Types[current_type]
 #        buttons = generate_navigation_buttons(current_type, len(Types))
-#        await event.reply(types_text, buttons=buttons)
+#        await event.edit(types_text, buttons=buttons)
